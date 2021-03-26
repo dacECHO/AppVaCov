@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText user;
     private EditText password;
     private Button login;
+    private Button logup;
     private TextView info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         user =(EditText) findViewById(R.id.edUser);
         password = (EditText) findViewById(R.id.edPassword);
         login = (Button) findViewById(R.id.btnLogin);
+        logup= (Button) findViewById(R.id.btnLogup);
         info = (TextView) findViewById(R.id.txvInfo);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        logup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUp.class);
+                startActivity(intent); //lanza la segunda actividad
+            }
+        });
+
+
     }
     private void validate (String usr, String passwrd){
         if(usr.equals("Admin") && passwrd.equals("Admin")){
